@@ -1,0 +1,41 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba:(142/255,77/255,196/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    GridLayout:
+
+        spacing: 30,30
+        padding: 30,30
+        cols:1
+        Image:
+            source: 'logo.png'
+            size_hint: .20, .20
+        GridLayout:
+            spacing: 30,30
+            padding: 30,30
+            cols:1
+            Label:
+                id:hello
+                text:'Welcome to QR Code Generator'
+                font_size: '20sp'
+            TextInput:
+                id:link
+                size_hint: .50, .50
+                hint_text:'Enter or Paste URL'
+                multiline : False
+
+            RelativeLayout:
+                Button:
+                    text:'Create QRCode'
+                    size_hint: .7,.4
+                    font_size: '20sp'
+                    pos_hint: {'center_x':.5,'center_y':.6}
+                    background_color: 0,0,0,1
+                    on_press: root.createcode(root.ids.link.text)
+
+<RootWidget>:
+    MainScreen:
+        name:'Main_Screen'
